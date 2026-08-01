@@ -1,4 +1,6 @@
-use super::parser;
+use crate::chatbot::parser;
+
+use super::entry;
 use super::response;
 
 use std::io;
@@ -28,7 +30,7 @@ impl Bot {
                 break;
             }
 
-            let parse = parser::parse(&input_string); //get input and passes to parser
+            let parse = parser::parse(&input_string);
             let output = response::respond(parse);
             self.output = output.to_string();
             println!("\nBot: {}\n", self.output);
